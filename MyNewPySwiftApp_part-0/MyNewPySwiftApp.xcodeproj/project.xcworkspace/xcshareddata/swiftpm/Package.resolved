@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "pythonlib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PythonSwiftLink/PythonLib",
+      "state" : {
+        "branch" : "main",
+        "revision" : "04cefa15c383f58bbc2836d76912031cfa5978b9"
+      }
+    },
+    {
+      "identity" : "pythonswiftcore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/PythonSwiftLink/PythonSwiftCore",
+      "state" : {
+        "branch" : "testing",
+        "revision" : "6fbc41fb25983bff9b5a83e820d8495ce4acb77f"
+      }
+    }
+  ],
+  "version" : 2
+}
