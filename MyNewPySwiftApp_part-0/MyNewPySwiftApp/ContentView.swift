@@ -39,7 +39,9 @@ struct ContentView: View {
             Button("py_class_multi") {
                 data.py_class_multi()
             }
-            
+            Button("py_class_multi_pythonObject") {
+                data.py_class_multi_pythonObject()
+            }
         }
         .padding(4.0)
         .frame(width: 200.0, height: 400.0)
