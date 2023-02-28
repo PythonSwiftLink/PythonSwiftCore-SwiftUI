@@ -21,7 +21,8 @@ struct ContentView: View {
             
             
             Text(data.py_string)
-                .animation(.easeInOut(duration: 1.0), value: data.py_string)
+                .animation(.easeInOut(duration: 0.5), value: data.py_string)
+            Text(data.int_value, format: .number)
             
             Button("get_string") {
                 data.py_trigger()
@@ -29,6 +30,14 @@ struct ContentView: View {
             
             Button("get_string2") {
                 data.py_trigger2()
+            }
+            
+            Button("py_multi") {
+                data.py_multi()
+            }
+            
+            Button("py_class_multi") {
+                data.py_class_multi()
             }
             
         }

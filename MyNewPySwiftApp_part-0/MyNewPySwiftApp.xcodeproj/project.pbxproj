@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C2AF0D429AE43B8009011AB /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = 8C2AF0D329AE43B8009011AB /* main.py */; };
 		8CA2CBCD2991EFA40050957C /* MyNewPySwiftAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2CBCC2991EFA40050957C /* MyNewPySwiftAppApp.swift */; };
 		8CA2CBCF2991EFA40050957C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2CBCE2991EFA40050957C /* ContentView.swift */; };
 		8CA2CBD12991EFA60050957C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CA2CBD02991EFA60050957C /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C2AF0D329AE43B8009011AB /* main.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
+		8C2AF0D629AE4A59009011AB /* PythonSwiftCore */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PythonSwiftCore; path = ../../PythonSwiftCore; sourceTree = "<group>"; };
 		8CA2CBC92991EFA40050957C /* MyNewPySwiftApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNewPySwiftApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CA2CBCC2991EFA40050957C /* MyNewPySwiftAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewPySwiftAppApp.swift; sourceTree = "<group>"; };
 		8CA2CBCE2991EFA40050957C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,9 +43,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C2AF0D529AE4A59009011AB /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				8C2AF0D629AE4A59009011AB /* PythonSwiftCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		8CA2CBC02991EFA40050957C = {
 			isa = PBXGroup;
 			children = (
+				8C2AF0D529AE4A59009011AB /* Packages */,
+				8C2AF0D329AE43B8009011AB /* main.py */,
 				8CA2CBCB2991EFA40050957C /* MyNewPySwiftApp */,
 				8CA2CBCA2991EFA40050957C /* Products */,
 			);
@@ -145,6 +158,7 @@
 				8CA2CBFD2994F4450050957C /* Support in Resources */,
 				8CA2CBD42991EFA60050957C /* Preview Assets.xcassets in Resources */,
 				8CA2CBD12991EFA60050957C /* Assets.xcassets in Resources */,
+				8C2AF0D429AE43B8009011AB /* main.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
