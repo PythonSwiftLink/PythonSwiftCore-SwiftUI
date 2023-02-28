@@ -58,13 +58,13 @@ fileprivate extension PyPointer {
 
 extension PythonObject {
     // Generic Example
-    func callAsFunction<T: PyConvertible, R: ConvertibleFromPython>(_ arg: T) throws -> R {
-        let v = arg.pyPointer
-        let result = PyObject_CallOneArg(ptr, v)
-        let rtn = try R(object: result)
-        result.decref()
-        return rtn
-    }
+//    func callAsFunction<T: PyConvertible, R: ConvertibleFromPython>(_ arg: T) throws -> R {
+//        let v = arg.pyPointer
+//        let result = PyObject_CallOneArg(ptr, v)
+//        let rtn = try R(object: result)
+//        result.decref()
+//        return rtn
+//    }
 }
 
 
@@ -153,7 +153,7 @@ class PyDataModel: ObservableObject {
         
         do {
             let py_cls = py_class2!
-            int_value = try py_cls.multi_func(Int.random(in: 0...1000) )
+            int_value = try py_cls.multi_func(a: Int.random(in: 0...1000) )
         }
         catch _ {}
         
