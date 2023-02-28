@@ -57,7 +57,7 @@ fileprivate extension PyPointer {
 }
 
 extension PythonObject {
-    // Generic Example 
+    // Generic Example
     func callAsFunction<T: PyConvertible, R: ConvertibleFromPython>(_ arg: T) throws -> R {
         let v = arg.pyPointer
         let result = PyObject_CallOneArg(ptr, v)
@@ -100,9 +100,7 @@ class PyDataModel: ObservableObject {
         // PyPointer = low level
         py_class = PyClass(50)
         // PythonObject = higher level
-        py_class2 = .init(
-            getter: PyClass(40)
-        )
+        py_class2 = PyClass(40).pyObject
         // garbage collect locals no needed since the custom subscript returned a strong ref to get_string
         main_py.decref()
     }
