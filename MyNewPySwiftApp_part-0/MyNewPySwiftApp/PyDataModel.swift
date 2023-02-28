@@ -43,8 +43,28 @@ fileprivate extension PyPointer {
             PyDict_SetItem(self, key, newValue)
         }
     }
+    // Generic Example
+    func callAsFunction<T: PyConvertible, R: ConvertibleFromPython>(method name: String ,_ arg: T) throws -> R {
+        let py_name = name.pyPointer
+        let v = arg.pyPointer
+        let result = PyObject_CallMethodOneArg(self, py_name, v)
+        py_name.decref()
+        let rtn = try R(object: result)
+        result.decref()
+        return rtn
+    }
     
-    
+}
+
+extension PythonObject {
+    // Generic Example 
+    func callAsFunction<T: PyConvertible, R: ConvertibleFromPython>(_ arg: T) throws -> R {
+        let v = arg.pyPointer
+        let result = PyObject_CallOneArg(ptr, v)
+        let rtn = try R(object: result)
+        result.decref()
+        return rtn
+    }
 }
 
 
@@ -58,6 +78,7 @@ class PyDataModel: ObservableObject {
     
     var PyClass: PyPointer
     var py_class: PyPointer = nil
+    var py_class2: PythonObject?
     
     init() {
 
@@ -76,7 +97,12 @@ class PyDataModel: ObservableObject {
         multi_func = main_py["multi_func"]
         
         PyClass = main_py["PyClass"]
+        // PyPointer = low level
         py_class = PyClass(50)
+        // PythonObject = higher level
+        py_class2 = .init(
+            getter: PyClass(40)
+        )
         // garbage collect locals no needed since the custom subscript returned a strong ref to get_string
         main_py.decref()
     }
@@ -114,5 +140,24 @@ class PyDataModel: ObservableObject {
             int_value = value
         }
         result.decref()
+    }
+    
+    func py_class_multi_simpler() {
+        
+        do {
+            int_value = try py_class(method: "multi_func", Int.random(in: 0...1000) )
+        }
+        catch _ {}
+
+    }
+    
+    func py_class_multi_pythonObject() {
+        
+        do {
+            let py_cls = py_class2!
+            int_value = try py_cls.multi_func(Int.random(in: 0...1000) )
+        }
+        catch _ {}
+        
     }
 }
